@@ -1,0 +1,6 @@
+typer>=0.12
+rich>=13
+PyYAML>=6
+pyserial>=3.5
+pymodbus>=3.7
+pytest>=8

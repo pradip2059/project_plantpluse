@@ -1,0 +1,20 @@
+device: pump01
+limits:
+  temperature_c: {warning: 65.0, fault: 80.0}
+  vibration_mm_s: {warning: 4.5, fault: 7.1}
+  current_a: {warning: 4.0, fault: 5.5}
+  pressure_psi: {warning_low: 45.0, fault_low: 30.0}
+uart:
+  baud: 115200
+modbus:
+  host: 127.0.0.1
+  port: 502
+  unit: 1
+  registers:
+    rpm: 0
+    current_a: 1
+    temperature_c: 2
+    vibration_mm_s: 3
+    pressure_psi: 4
+    inject: {current_a: 101, temperature_c: 102, vibration_mm_s: 103, pressure_psi: 104}
+  scale: {rpm: 1.0, current_a: 0.01, temperature_c: 0.1, vibration_mm_s: 0.01, pressure_psi: 0.1}

@@ -1,0 +1,21 @@
+name: Pump Controller Commissioning
+tests:
+  - name: Nominal startup
+    expect:
+      rpm: [1650, 1800]
+      current_a: {lt: 4.0}
+      temperature_c: {lt: 65}
+      pressure_psi: {gt: 45}
+    within_ms: 500
+  - name: Overcurrent protection
+    inject: {current_a: 6.2}
+    expect: {fault: PP-CUR-002}
+    within_ms: 500
+  - name: Pressure-loss detection
+    inject: {current_a: 2.8, pressure_psi: 20}
+    expect: {fault: PP-PRS-004}
+    within_ms: 500
+  - name: Vibration fault detection
+    inject: {pressure_psi: 62, vibration_mm_s: 8.0}
+    expect: {fault: PP-VIB-003}
+    within_ms: 500

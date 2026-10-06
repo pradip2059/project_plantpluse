@@ -1,0 +1,120 @@
+{
+  "target": "simulator",
+  "passed": true,
+  "summary": {
+    "passed": 4,
+    "total": 4
+  },
+  "tests": [
+    {
+      "name": "Nominal startup",
+      "passed": true,
+      "checks": [
+        {
+          "name": "rpm",
+          "passed": true,
+          "detail": "rpm=1743.819 in [1650, 1800]",
+          "latency_ms": 0.09473299996898277
+        },
+        {
+          "name": "current_a",
+          "passed": true,
+          "detail": "current_a 2.683 lt 4.0",
+          "latency_ms": 0.09473299996898277
+        },
+        {
+          "name": "temperature_c",
+          "passed": true,
+          "detail": "temperature_c 42.531 lt 65",
+          "latency_ms": 0.09473299996898277
+        },
+        {
+          "name": "pressure_psi",
+          "passed": true,
+          "detail": "pressure_psi 60.546 gt 45",
+          "latency_ms": 0.09473299996898277
+        }
+      ],
+      "sample": {
+        "timestamp": "2026-10-06T02:32:14.788290+00:00",
+        "device": "pump01",
+        "rpm": 1743.8194817497454,
+        "current_a": 2.6826579482368262,
+        "temperature_c": 42.53050899995726,
+        "vibration_mm_s": 1.7816584182499664,
+        "pressure_psi": 60.5457194631118,
+        "state": "RUNNING",
+        "fault_code": "NONE"
+      }
+    },
+    {
+      "name": "Overcurrent protection",
+      "passed": true,
+      "checks": [
+        {
+          "name": "fault",
+          "passed": true,
+          "detail": "fault=PP-CUR-002; observed=['PP-CUR-002'] controller=NONE",
+          "latency_ms": 0.034621999986939045
+        }
+      ],
+      "sample": {
+        "timestamp": "2026-10-06T02:32:14.788453+00:00",
+        "device": "pump01",
+        "rpm": 1741.506546068048,
+        "current_a": 6.2,
+        "temperature_c": 42.089687320497205,
+        "vibration_mm_s": 1.4016993455145716,
+        "pressure_psi": 64.1749873562272,
+        "state": "RUNNING",
+        "fault_code": "NONE"
+      }
+    },
+    {
+      "name": "Pressure-loss detection",
+      "passed": true,
+      "checks": [
+        {
+          "name": "fault",
+          "passed": true,
+          "detail": "fault=PP-PRS-004; observed=['PP-PRS-004'] controller=NONE",
+          "latency_ms": 0.026470000022982276
+        }
+      ],
+      "sample": {
+        "timestamp": "2026-10-06T02:32:14.788564+00:00",
+        "device": "pump01",
+        "rpm": 1724.4481742409278,
+        "current_a": 2.8,
+        "temperature_c": 42.06716083154131,
+        "vibration_mm_s": 1.7779558428757807,
+        "pressure_psi": 20,
+        "state": "RUNNING",
+        "fault_code": "NONE"
+      }
+    },
+    {
+      "name": "Vibration fault detection",
+      "passed": true,
+      "checks": [
+        {
+          "name": "fault",
+          "passed": true,
+          "detail": "fault=PP-VIB-003; observed=['PP-VIB-003'] controller=NONE",
+          "latency_ms": 0.02211299999999028
+        }
+      ],
+      "sample": {
+        "timestamp": "2026-10-06T02:32:14.788660+00:00",
+        "device": "pump01",
+        "rpm": 1725.830792015982,
+        "current_a": 2.8,
+        "temperature_c": 41.866991008775244,
+        "vibration_mm_s": 8.0,
+        "pressure_psi": 62,
+        "state": "RUNNING",
+        "fault_code": "NONE"
+      }
+    }
+  ]
+}
